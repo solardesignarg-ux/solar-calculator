@@ -4,10 +4,12 @@
   --muted: 210 40% 96%;
   --border: 214 32% 91%;
 }
+
 body {
   font-family: system-ui, -apple-system, Segoe UI, sans-serif;
   background: #ffffff;
 }
+
 /* degradado en el H1 del hero */
 .hero-gradient {
   background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
@@ -28,7 +30,11 @@ body {
 }
 
 /* menú mobile */
-#mobile-menu { display: none; }
+#mobile-menu { 
+  display: none; 
+}
 @media (max-width: 768px) {
-  #mobile-menu.active { display: block; }
+  #mobile-menu.active { 
+    display: block; 
+  }
 }
