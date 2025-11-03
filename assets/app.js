@@ -1,65 +1,22 @@
-// Inicialización después de que el DOM esté listo
-window.addEventListener('DOMContentLoaded', () => {
-  // activar iconos (si lucide cargó correctamente)
-  if (window.lucide && typeof window.lucide.createIcons === 'function') {
-    window.lucide.createIcons();
+document.getElementById('btnCalcular').addEventListener('click', () => {
+  const consumo = parseFloat(document.getElementById('consumo').value);
+  const horas = parseFloat(document.getElementById('provincia').value);
+  const resultados = document.getElementById('resultados');
+
+  if (!consumo || !horas) {
+    alert('Por favor, completa todos los campos.');
+    return;
   }
 
-  // menú mobile
-  const mobileBtn = document.getElementById('mobile-menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  if (mobileBtn && mobileMenu) {
-    mobileBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('active');
-    });
-  }
+  const diario = consumo / 30;
+  const sistema = diario / (horas * 0.75);
+  const paneles = Math.ceil((sistema * 1000) / 400);
+  const area = paneles * 2;
 
-  // calculadora
-  const calculateBtn = document.getElementById('calculate-btn');
-  const consumptionInput = document.getElementById('consumption');
-  const locationSelect = document.getElementById('location');
-  const results = document.getElementById('results');
+  document.getElementById('potencia').textContent = sistema.toFixed(2) + ' kW';
+  document.getElementById('paneles').textContent = paneles;
+  document.getElementById('area').textContent = area + ' m²';
 
-  const systemSizeEl = document.getElementById('system-size');
-  const panelsEl = document.getElementById('panels');
-  const areaEl = document.getElementById('area');
-
-  function isPosNumber(v) { 
-    return Number.isFinite(v) && v > 0; 
-  }
-
-  if (calculateBtn && consumptionInput && locationSelect && results) {
-    calculateBtn.addEventListener('click', () => {
-      const consumption = parseFloat(consumptionInput.value);
-      const peakSunHours = parseFloat(locationSelect.value);
-
-      if (!isPosNumber(consumption) || !isPosNumber(peakSunHours)) {
-        alert('Por favor completa todos los campos con valores válidos.');
-        return;
-      }
-
-      const dailyConsumption = consumption / 30;                 // kWh/día
-      const systemSize = dailyConsumption / (peakSunHours * 0.75); // kW
-      const panels = Math.ceil((systemSize * 1000) / 400);       // 400 Wp/panel
-      const area = panels * 2;                                   // ~2 m² por panel
-
-      if (systemSizeEl) systemSizeEl.textContent = systemSize.toFixed(2) + ' kW';
-      if (panelsEl) panelsEl.textContent = panels;
-      if (areaEl) areaEl.textContent = area + ' m²';
-
-      results.classList.remove('hidden');
-      results.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    });
-  }
-
-  // scroll suave interno
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener('click', e => {
-      const target = document.querySelector(link.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
+  resultados.classList.remove('hidden');
+  resultados.scrollIntoView({ behavior: 'smooth' });
 });
