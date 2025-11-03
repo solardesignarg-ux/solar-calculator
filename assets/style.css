@@ -38,3 +38,20 @@ button {
   cursor: pointer;
   transition: all 0.3s ease;
 }
+/* Fondo con logo en la sección #inicio */
+#inicio::before {
+  content: "";
+  position: absolute;
+  top: -80px;              /* sube o baja el logo */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 480px;            /* tamaño del logo */
+  height: 480px;
+  background-image: url("LOGO SOLAR DESING.JPG");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top center;
+  opacity: 0.18;           /* transparencia tipo marca de agua */
+  pointer-events: none;    /* no bloquea clics */
+}
+
