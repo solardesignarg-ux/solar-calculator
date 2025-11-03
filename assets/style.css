@@ -1,0 +1,34 @@
+:root {
+  --primary: 199 89% 48%;
+  --secondary: 142 76% 36%;
+  --muted: 210 40% 96%;
+  --border: 214 32% 91%;
+}
+body {
+  font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+  background: #ffffff;
+}
+/* degradado en el H1 del hero */
+.hero-gradient {
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* tarjetas + hover */
+.card {
+  background: #fff;
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.75rem;
+  transition: all .25s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(15,23,42,.1);
+}
+
+/* menú mobile */
+#mobile-menu { display: none; }
+@media (max-width: 768px) {
+  #mobile-menu.active { display: block; }
+}
