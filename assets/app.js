@@ -1,4 +1,4 @@
-// Espera a que Tailwind y Lucide estén disponibles y luego inicializa todo
+// Inicialización después de que el DOM esté listo
 window.addEventListener('DOMContentLoaded', () => {
   // activar iconos (si lucide cargó correctamente)
   if (window.lucide && typeof window.lucide.createIcons === 'function') {
@@ -24,7 +24,9 @@ window.addEventListener('DOMContentLoaded', () => {
   const panelsEl = document.getElementById('panels');
   const areaEl = document.getElementById('area');
 
-  function isPosNumber(v){ return Number.isFinite(v) && v > 0; }
+  function isPosNumber(v) { 
+    return Number.isFinite(v) && v > 0; 
+  }
 
   if (calculateBtn && consumptionInput && locationSelect && results) {
     calculateBtn.addEventListener('click', () => {
@@ -36,10 +38,10 @@ window.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      const dailyConsumption = consumption / 30;               // kWh/día
+      const dailyConsumption = consumption / 30;                 // kWh/día
       const systemSize = dailyConsumption / (peakSunHours * 0.75); // kW
-      const panels = Math.ceil((systemSize * 1000) / 400);     // 400 Wp/panel
-      const area = panels * 2;                                 // ~2 m² por panel
+      const panels = Math.ceil((systemSize * 1000) / 400);       // 400 Wp/panel
+      const area = panels * 2;                                   // ~2 m² por panel
 
       if (systemSizeEl) systemSizeEl.textContent = systemSize.toFixed(2) + ' kW';
       if (panelsEl) panelsEl.textContent = panels;
@@ -50,7 +52,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // scroll suave interno (por si navegan dentro del iframe)
+  // scroll suave interno
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', e => {
       const target = document.querySelector(link.getAttribute('href'));
