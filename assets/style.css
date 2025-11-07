@@ -55,5 +55,93 @@ button {
   pointer-events: none;    /* no bloquea clics */
 }
 
+/* ===== NAVBAR GLOBAL (GitHub / Vercel) ===== */
+
+.sd-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+}
+
+.sd-nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 10px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.sd-nav-logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  white-space: nowrap;
+}
+
+.sd-nav-logo span {
+  color: #0284c7;
+}
+
+.sd-nav-toggle {
+  display: none;
+}
+
+.sd-nav-hamburger {
+  display: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: #0f172a;
+}
+
+.sd-nav-menu {
+  display: flex;
+  gap: 24px;
+  font-size: 0.95rem;
+  color: #475569;
+}
+
+.sd-nav-menu a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.sd-nav-menu a:hover {
+  color: #0284c7;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sd-nav-inner {
+    padding: 10px 14px;
+  }
+
+  .sd-nav-hamburger {
+    display: block;
+  }
+
+  .sd-nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0 14px;
+    display: none;
+  }
+
+  .sd-nav-toggle:checked ~ .sd-nav-menu {
+    display: flex;
+  }
+}
+
 
 
