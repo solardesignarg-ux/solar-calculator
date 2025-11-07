@@ -15,35 +15,36 @@
 </head>
 
 <body class="bg-white text-slate-900">
+
   <!-- NAVBAR -->
-  <header class="sd-nav">
+  <nav class="sd-nav">
     <div class="sd-nav-inner">
-      <!-- LOGO -->
-      <a href="#inicio" class="sd-nav-logo">
-        <span>Solar</span>·Design
+      <!-- Logo a la izquierda -->
+      <a href="#inicio" class="sd-logo">
+        <span class="sd-logo-main">Solar</span><span class="sd-logo-dot">·</span>Design
       </a>
 
-      <!-- TOGGLE MÓVIL (sin JS si quieres) -->
-      <input type="checkbox" id="sd-nav-toggle" class="sd-nav-toggle">
-      <label for="sd-nav-toggle" class="sd-nav-hamburger" aria-label="Abrir menú">
+      <!-- Botón móvil -->
+      <button id="sd-menu-toggle" class="sd-menu-toggle" aria-label="Abrir menú">
         ☰
-      </label>
+      </button>
 
-      <!-- MENÚ -->
-      <nav class="sd-nav-menu">
+      <!-- Enlaces -->
+      <div class="sd-nav-links">
         <a href="#inicio">Inicio</a>
         <a href="#blog">Blog</a>
         <a href="#sobre">Sobre Nosotros</a>
         <a href="#contacto">Contacto</a>
-      </nav>
+      </div>
     </div>
-  </header>
+  </nav>
 
-  <!-- HEADER (igual al de WP: logo arriba del título) -->
+  <!-- HEADER -->
   <section
     id="inicio"
     class="relative overflow-hidden pt-10 md:pt-16 pb-16 px-4 bg-gradient-to-b from-slate-50 to-white text-center"
   >
+
     <div class="max-w-4xl mx-auto relative z-10">
 
       <!-- LOGO ARRIBA DEL TÍTULO -->
@@ -181,5 +182,6 @@
   <script src="assets/app.js"></script>
 </body>
 </html>
+
 
 
