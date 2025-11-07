@@ -77,54 +77,80 @@
   </section>
 
   <!-- CALCULADORA -->
-  <section id="calculadora" class="py-16 px-4 bg-slate-50 text-center">
-    <h2 class="text-3xl font-bold mb-4">Calculadora Solar Interactiva</h2>
-    <p class="text-slate-500 mb-6">Ingresa tu consumo y provincia para estimar tu sistema solar ideal.</p>
+<section id="calculadora" class="py-16 px-4 bg-slate-50">
+  <div
+    class="mx-auto bg-white rounded-2xl shadow-lg px-6 py-10 text-center"
+    style="max-width:1100px;"
+  >
+    <h2 class="text-3xl font-bold mb-4">
+      Calculadora Solar Interactiva
+    </h2>
 
-    <div class="max-w-3xl mx-auto bg-white rounded-xl p-6 shadow-md">
-      <div class="grid md:grid-cols-2 gap-6 mb-6">
-        <div>
-          <label class="block text-sm font-semibold mb-2">Consumo mensual (kWh)</label>
-          <input id="consumo" type="number" min="0" placeholder="Ej: 300"
-            class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-400">
-        </div>
-        <div>
-          <label class="block text-sm font-semibold mb-2">Provincia</label>
-          <select id="provincia"
-            class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-400">
-            <option value="">Selecciona tu provincia</option>
-            <option value="4.5">Buenos Aires</option>
-            <option value="5.2">Córdoba</option>
-            <option value="5.8">Mendoza</option>
-            <option value="6.0">San Juan</option>
-            <option value="5.5">Salta</option>
-            <option value="5.3">Tucumán</option>
-            <option value="4.8">Patagonia</option>
-          </select>
-        </div>
+    <p class="text-slate-500 mb-6">
+      Ingresa tu consumo y provincia para estimar tu sistema solar ideal.
+    </p>
+
+    <div class="grid md:grid-cols-2 gap-6 mb-6">
+      <div>
+        <label class="block text-sm font-semibold mb-2">
+          Consumo mensual (kWh)
+        </label>
+        <input
+          id="consumo"
+          type="number"
+          min="0"
+          placeholder="Ej: 300"
+          class="w-full border border-slate-300 rounded-lg px-3 py-2
+                 focus:outline-none focus:ring-2 focus:ring-sky-400"
+        >
       </div>
 
-      <button id="btnCalcular"
-        class="bg-sky-500 hover:bg-sky-600 text-white font-semibold px-6 py-3 rounded-lg transition duration-300 transform hover:-translate-y-0.5">
-        Calcular sistema solar
-      </button>
-
-      <div id="resultados" class="hidden mt-8 grid md:grid-cols-3 gap-6">
-        <div class="p-4 bg-slate-50 rounded-lg border border-slate-200">
-          <p class="text-sm text-slate-500 mb-1">Potencia del sistema</p>
-          <p id="potencia" class="text-2xl font-bold text-sky-500">0 kW</p>
-        </div>
-        <div class="p-4 bg-slate-50 rounded-lg border border-slate-200">
-          <p class="text-sm text-slate-500 mb-1">Paneles necesarios</p>
-          <p id="paneles" class="text-2xl font-bold text-sky-500">0</p>
-        </div>
-        <div class="p-4 bg-slate-50 rounded-lg border border-slate-200">
-          <p class="text-sm text-slate-500 mb-1">Área requerida</p>
-          <p id="area" class="text-2xl font-bold text-sky-500">0 m²</p>
-        </div>
+      <div>
+        <label class="block text-sm font-semibold mb-2">
+          Provincia
+        </label>
+        <select
+          id="provincia"
+          class="w-full border border-slate-300 rounded-lg px-3 py-2
+                 focus:outline-none focus:ring-2 focus:ring-sky-400"
+        >
+          <option value="">Selecciona tu provincia</option>
+          <option value="4.5">Buenos Aires</option>
+          <option value="5.2">Córdoba</option>
+          <option value="5.8">Mendoza</option>
+          <option value="6.0">San Juan</option>
+          <option value="5.5">Salta</option>
+          <option value="5.3">Tucumán</option>
+          <option value="4.8">Patagonia</option>
+        </select>
       </div>
     </div>
-  </section>
+
+    <button
+      id="btnCalcular"
+      class="bg-sky-500 hover:bg-sky-600 text-white font-semibold px-6 py-3
+             rounded-lg transition duration-300 transform hover:-translate-y-0.5"
+    >
+      Calcular sistema solar
+    </button>
+
+    <div id="resultados" class="hidden mt-8 grid md:grid-cols-3 gap-6">
+      <div class="p-4 bg-slate-50 rounded-lg border border-slate-200">
+        <p class="text-sm text-slate-500 mb-1">Potencia del sistema</p>
+        <p id="potencia" class="text-2xl font-bold text-sky-500">0 kW</p>
+      </div>
+      <div class="p-4 bg-slate-50 rounded-lg border border-slate-200">
+        <p class="text-sm text-slate-500 mb-1">Paneles necesarios</p>
+        <p id="paneles" class="text-2xl font-bold text-sky-500">0</p>
+      </div>
+      <div class="p-4 bg-slate-50 rounded-lg border border-slate-200">
+        <p class="text-sm text-slate-500 mb-1">Área requerida</p>
+        <p id="area" class="text-2xl font-bold text-sky-500">0 m²</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 
   <!-- BLOG -->
   <section id="blog" class="py-16 px-4 text-center">
@@ -223,6 +249,7 @@
   <script src="assets/app.js"></script>
 </body>
 </html>
+
 
 
 
