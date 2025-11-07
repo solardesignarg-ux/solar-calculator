@@ -223,23 +223,109 @@
 </section>
 
 
-  <!-- CONTACTO / CONTÁCTANOS -->
-  <section id="contacto" style="margin-bottom:40px;padding:40px 16px 60px">
-    <div style="max-width:1100px;margin:0 auto;background:linear-gradient(135deg,#f8fafc,#f1f5f9);border-radius:16px;padding:32px 24px 40px;box-shadow:0 8px 24px rgba(15,23,42,0.06)">
-      <h2 style="font-size:2rem;font-weight:700;margin:0 0 10px 0;color:#0f172a;text-align:center">
-        Contáctanos
-      </h2>
+  <!-- CONTACTO -->
+<section id="contacto" class="py-16 px-4 bg-slate-50">
+  <div
+    class="max-w-3xl mx-auto bg-white rounded-xl shadow-md px-6 py-10 md:px-8 md:py-12"
+  >
+    <h2 class="text-3xl font-bold text-center mb-3">
+      Contáctanos
+    </h2>
 
-      <p style="color:#475569;font-size:1rem;max-width:700px;margin:0 auto 30px;text-align:justify;line-height:1.6">
-        Cuéntanos sobre tu proyecto solar, tu ubicación y tu consumo estimado.<br>
-        Te responderemos con una propuesta orientativa y los próximos pasos para avanzar.
-      </p>
+    <p
+      class="text-slate-500 text-base md:text-lg text-center max-w-2xl mx-auto mb-8"
+    >
+      Cuéntanos sobre tu proyecto solar, tu ubicación y tu consumo estimado.
+      Te responderemos con una propuesta orientativa y los próximos pasos para avanzar.
+    </p>
 
-      <div style="margin-top:10px">
-        [contact-form to="solardesign.arg@gmail.com" subject="Consulta desde Solar Design Argentina"]
+    <!-- Formulario de contacto: envía datos por correo usando mailto -->
+    <form
+      action="mailto:solardesign.arg@gmail.com"
+      method="POST"
+      enctype="text/plain"
+      class="space-y-6"
+    >
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <label class="block text-sm font-semibold mb-2" for="nombre">
+            Nombre
+          </label>
+          <input
+            id="nombre"
+            name="Nombre"
+            type="text"
+            required
+            class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-400"
+            placeholder="Tu nombre"
+          />
+        </div>
+
+        <div>
+          <label
+            class="block text-sm font-semibold mb-2"
+            for="email"
+          >
+            Correo electrónico
+          </label>
+          <input
+            id="email"
+            name="Correo"
+            type="email"
+            required
+            class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-400"
+            placeholder="tucorreo@ejemplo.com"
+          />
+        </div>
       </div>
-    </div>
-  </section>
+
+      <div>
+        <label class="block text-sm font-semibold mb-2" for="web">
+          Web (opcional)
+        </label>
+        <input
+          id="web"
+          name="Web"
+          type="text"
+          class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-400"
+          placeholder="https://tusitio.com"
+        />
+      </div>
+
+      <div>
+        <label
+          class="block text-sm font-semibold mb-2"
+          for="mensaje"
+        >
+          Mensaje
+        </label>
+        <textarea
+          id="mensaje"
+          name="Mensaje"
+          rows="5"
+          required
+          class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-400"
+          placeholder="Cuéntanos sobre tu proyecto solar..."
+        ></textarea>
+      </div>
+
+      <div class="text-center pt-2">
+        <button
+          type="submit"
+          class="bg-sky-500 hover:bg-sky-600 text-white font-semibold px-6 py-3 rounded-lg transition duration-300 transform hover:-translate-y-0.5"
+        >
+          Enviar mensaje
+        </button>
+      </div>
+
+      <p class="text-xs text-slate-400 text-center mt-3">
+        Al hacer clic en “Enviar mensaje” se abrirá tu aplicación de correo
+        con estos datos ya completados.
+      </p>
+    </form>
+  </div>
+</section>
+
   <!-- FOOTER -->
   <footer class="bg-slate-900 text-slate-300 text-center py-6 mt-10">
     © 2025 Solar Design Argentina — Energía solar para un futuro sostenible.
@@ -249,6 +335,7 @@
   <script src="assets/app.js"></script>
 </body>
 </html>
+
 
 
 
