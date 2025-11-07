@@ -78,78 +78,135 @@
 
   <!-- CALCULADORA -->
 <section id="calculadora" class="py-16 px-4 bg-slate-50">
-  <div
-    class="mx-auto bg-white rounded-2xl shadow-lg px-6 py-10 text-center "
-    style="max-width:1100px;"
-  >
-    <h2 class="text-3xl font-bold mb-4">
-      Calculadora Solar Interactiva
-    </h2>
+  <div class="max-w-5xl mx-auto">
 
-    <p class="text-slate-500 mb-6">
-      Ingresa tu consumo y provincia para estimar tu sistema solar ideal.
+    <h2 class="text-3xl font-bold mb-3 text-center">
+      Calculadora Solar Mundial
+    </h2>
+    <p class="text-slate-500 mb-8 text-center max-w-2xl mx-auto">
+      Selecciona tu ubicación en el mapa o usa tu geolocalización. Ingresa tu consumo mensual para estimar
+      la potencia del sistema, cantidad de paneles y área requerida.
     </p>
 
-    <div class="grid md:grid-cols-2 gap-6 mb-6">
-      <div>
-        <label class="block text-sm font-semibold mb-2">
-          Consumo mensual (kWh)
-        </label>
-        <input
-          id="consumo"
-          type="number"
-          min="0"
-          placeholder="Ej: 300"
-          class="w-full border border-slate-300 rounded-lg px-3 py-2
-                 focus:outline-none focus:ring-2 focus:ring-sky-400"
-        >
+    <!-- Mapa + datos de ubicación -->
+    <div class="grid md:grid-cols-3 gap-6 mb-8">
+      <!-- Mapa -->
+      <div class="md:col-span-2 bg-white rounded-xl shadow p-4">
+        <h3 class="font-semibold mb-3 text-left">Selecciona tu ubicación</h3>
+        <div id="map" class="w-full h-72 rounded-lg"></div>
+        <p class="text-xs text-slate-400 mt-2 text-left">
+          Haz clic en el mapa para elegir tu ubicación. También puedes usar el botón “Usar mi ubicación”.
+        </p>
       </div>
 
-      <div>
-        <label class="block text-sm font-semibold mb-2">
-          Provincia
-        </label>
-        <select
-          id="provincia"
-          class="w-full border border-slate-300 rounded-lg px-3 py-2
-                 focus:outline-none focus:ring-2 focus:ring-sky-400"
+      <!-- Datos de ubicación -->
+      <div class="bg-white rounded-xl shadow p-4 flex flex-col gap-3 text-left">
+        <h3 class="font-semibold mb-2">Datos de ubicación</h3>
+
+        <button
+          id="btnUbicacion"
+          class="bg-sky-500 hover:bg-sky-600 text-white font-semibold px-4 py-2 rounded-lg text-sm transition"
         >
-          <option value="">Selecciona tu provincia</option>
-          <option value="4.5">Buenos Aires</option>
-          <option value="5.2">Córdoba</option>
-          <option value="5.8">Mendoza</option>
-          <option value="6.0">San Juan</option>
-          <option value="5.5">Salta</option>
-          <option value="5.3">Tucumán</option>
-          <option value="4.8">Patagonia</option>
-        </select>
+          Usar mi ubicación
+        </button>
+
+        <div class="text-sm text-slate-600">
+          <p><span class="font-semibold">Latitud:</span> <span id="latitud">-</span></p>
+          <p><span class="font-semibold">Longitud:</span> <span id="longitud">-</span></p>
+          <p><span class="font-semibold">Horas pico estimadas:</span> <span id="horasPico">-</span> h/día</p>
+        </div>
+
+        <p class="text-xs text-slate-400">
+          Las horas pico de sol se estiman según la latitud. Para un diseño definitivo, usa datos de recurso solar específicos de tu zona.
+        </p>
       </div>
     </div>
 
-    <button
-      id="btnCalcular"
-      class="bg-sky-500 hover:bg-sky-600 text-white font-semibold px-6 py-3
-             rounded-lg transition duration-300 transform hover:-translate-y-0.5"
-    >
-      Calcular sistema solar
-    </button>
+    <!-- Parámetros de cálculo -->
+    <div class="bg-white rounded-xl shadow p-6">
+      <h3 class="text-xl font-bold mb-4 text-left">Parámetros de cálculo</h3>
 
-    <div id="resultados" class="hidden mt-8 grid md:grid-cols-3 gap-6">
-      <div class="p-4 bg-slate-50 rounded-lg border border-slate-200">
-        <p class="text-sm text-slate-500 mb-1">Potencia del sistema</p>
-        <p id="potencia" class="text-2xl font-bold text-sky-500">0 kW</p>
+      <div class="grid md:grid-cols-3 gap-6 mb-6">
+        <!-- Consumo -->
+        <div>
+          <label class="block text-sm font-semibold mb-2" for="consumo">
+            Consumo mensual (kWh)
+          </label>
+          <input
+            id="consumo"
+            type="number"
+            min="0"
+            placeholder="Ej: 300"
+            class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-400"
+          />
+        </div>
+
+        <!-- Potencia del panel -->
+        <div>
+          <label class="block text-sm font-semibold mb-2" for="potenciaPanel">
+            Potencia de cada panel (W)
+          </label>
+          <input
+            id="potenciaPanel"
+            type="number"
+            min="50"
+            value="400"
+            class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-400"
+          />
+        </div>
+
+        <!-- Pérdidas -->
+        <div>
+          <label class="block text-sm font-semibold mb-2" for="factorPerdidas">
+            Factor de pérdidas (%)
+          </label>
+          <input
+            id="factorPerdidas"
+            type="number"
+            min="0"
+            max="50"
+            value="25"
+            class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-400"
+          />
+          <p class="text-xs text-slate-400 mt-1">
+            25% ≈ eficiencia global del 75% (pérdidas por temperatura, inversor, suciedad, etc.).
+          </p>
+        </div>
       </div>
-      <div class="p-4 bg-slate-50 rounded-lg border border-slate-200">
-        <p class="text-sm text-slate-500 mb-1">Paneles necesarios</p>
-        <p id="paneles" class="text-2xl font-bold text-sky-500">0</p>
+
+      <div class="text-center">
+        <button
+          id="btnCalcular"
+          class="bg-sky-500 hover:bg-sky-600 text-white font-semibold px-6 py-3 rounded-lg transition duration-300 transform hover:-translate-y-0.5"
+        >
+          Calcular sistema solar
+        </button>
       </div>
-      <div class="p-4 bg-slate-50 rounded-lg border border-slate-200">
-        <p class="text-sm text-slate-500 mb-1">Área requerida</p>
-        <p id="area" class="text-2xl font-bold text-sky-500">0 m²</p>
+
+      <!-- Resultados -->
+      <div id="resultados" class="hidden mt-8 grid md:grid-cols-3 gap-6">
+        <div class="p-4 bg-slate-50 rounded-lg border border-slate-200 text-center">
+          <p class="text-sm text-slate-500 mb-1">Potencia del sistema</p>
+          <p id="potenciaSistema" class="text-2xl font-bold text-sky-500">0 kW</p>
+        </div>
+        <div class="p-4 bg-slate-50 rounded-lg border border-slate-200 text-center">
+          <p class="text-sm text-slate-500 mb-1">Paneles necesarios</p>
+          <p id="cantidadPaneles" class="text-2xl font-bold text-sky-500">0</p>
+        </div>
+        <div class="p-4 bg-slate-50 rounded-lg border border-slate-200 text-center">
+          <p class="text-sm text-slate-500 mb-1">Área estimada</p>
+          <p id="areaRequerida" class="text-2xl font-bold text-sky-500">0 m²</p>
+        </div>
       </div>
+
+      <p class="text-xs text-slate-400 mt-4">
+        * Cálculo orientativo. Se asume un área promedio de 2 m² por panel y un mes de 30 días.
+        Para proyectos reales se recomienda usar datos de recurso solar y normativas locales.
+      </p>
     </div>
   </div>
 </section>
+
 
 
   <!-- BLOG -->
@@ -353,6 +410,7 @@
   <script src="assets/app.js"></script>
 </body>
 </html>
+
 
 
 
