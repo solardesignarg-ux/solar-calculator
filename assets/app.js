@@ -1,5 +1,17 @@
 // assets/app.js
 'use strict';
+document.addEventListener('DOMContentLoaded', function () {
+  // Toggle menú móvil
+  var nav = document.querySelector('.sd-nav');
+  var toggle = document.getElementById('sd-menu-toggle');
+
+  if (nav && toggle) {
+    toggle.addEventListener('click', function () {
+      nav.classList.toggle('open');
+    });
+  }
+});
+
 
 document.addEventListener('DOMContentLoaded', function () {
   // Referencias a los elementos del DOM
@@ -62,5 +74,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+
 
 
