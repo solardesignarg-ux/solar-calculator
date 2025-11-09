@@ -32,6 +32,7 @@
       <!-- Enlaces -->
       <div class="sd-nav-links">
         <a href="#inicio">Inicio</a>
+        <a href="#calculadora">Calculadora</a>
         <a href="#blog">Blog</a>
         <a href="#sobre">Sobre Nosotros</a>
         <a href="#contacto">Contacto</a>
@@ -39,15 +40,13 @@
     </div>
   </nav>
 
-  <!-- HEADER -->
+  <!-- HEADER / HERO -->
   <section
     id="inicio"
-    class="relative overflow-hidden pt-10 md:pt-16 pb-16 px-4 bg-gradient-to-b from-slate-50 to-white text-center"
+    class="relative overflow-hidden pt-16 pb-16 px-4 bg-gradient-to-b from-slate-50 to-white text-center"
   >
-
-    <div class="max-w-4xl mx-auto relative z-10">
-
-      <!-- LOGO ARRIBA DEL TÍTULO -->
+    <div class="max-w-5xl mx-auto relative z-10">
+      <!-- LOGO -->
       <div class="flex justify-center mb-6">
         <img
           src="assets/logo-solar-design.png"
@@ -56,19 +55,14 @@
         />
       </div>
 
-      <!-- Etiqueta superior -->
       <p class="inline-block px-4 py-1 rounded-full bg-sky-50 text-sky-600 font-semibold">
         Argentina · Energía solar
       </p>
 
-      <!-- Título principal -->
-      <h1
-        class="text-4xl md:text-6xl font-bold text-emerald-500 mt-4"
-      >
+      <h1 class="text-4xl md:text-6xl font-bold text-emerald-500 mt-4">
         Energía Solar para el Futuro
       </h1>
 
-      <!-- Descripción -->
       <p class="text-lg text-slate-500 mt-6 max-w-2xl mx-auto">
         Espacio dedicado a explorar el presente y el futuro de la energía solar fotovoltaica y tecnologías limpias
         que están transformando el mundo.
@@ -77,441 +71,391 @@
   </section>
 
   <!-- CALCULADORA -->
-<section id="calculadora" class="py-16 px-4 bg-slate-50">
-  <div class="max-w-5xl mx-auto">
+  <section id="calculadora" class="py-16 px-4 bg-slate-50">
+    <div class="max-w-5xl mx-auto">
 
-    <h2 class="text-3xl font-bold mb-3 text-center">
-      Calculadora Solar Mundial
-    </h2>
-    <p class="text-slate-500 mb-8 text-center max-w-2xl mx-auto">
-      Selecciona tu ubicación en el mapa o usa tu geolocalización. Ingresa tu consumo mensual para estimar
-      la potencia del sistema, cantidad de paneles y área requerida.
-    </p>
+      <h2 class="text-3xl font-bold mb-3 text-center">
+        Calculadora Solar Mundial
+      </h2>
+      <p class="text-slate-500 mb-8 text-center max-w-2xl mx-auto">
+        Selecciona tu ubicación en el mapa o usa tu geolocalización. Ingresa tu consumo mensual para estimar
+        la potencia del sistema, cantidad de paneles y área requerida.
+      </p>
 
-    <!-- Mapa + datos de ubicación -->
-    <div class="grid md:grid-cols-3 gap-6 mb-8">
-      <!-- Mapa -->
-      <div class="md:col-span-2 bg-white rounded-xl shadow p-4">
-        <h3 class="font-semibold mb-3 text-left">Selecciona tu ubicación</h3>
-        <div id="map" class="w-full h-72 rounded-lg"></div>
-        <p class="text-xs text-slate-400 mt-2 text-left">
-          Haz clic en el mapa para elegir tu ubicación. También puedes usar el botón “Usar mi ubicación”.
-        </p>
-      </div>
-
-      <!-- Datos de ubicación -->
-      <div class="bg-white rounded-xl shadow p-4 flex flex-col gap-3 text-left">
-        <h3 class="font-semibold mb-2">Datos de ubicación</h3>
-
-        <button
-          id="btnUbicacion"
-          class="bg-sky-500 hover:bg-sky-600 text-white font-semibold px-4 py-2 rounded-lg text-sm transition"
-        >
-          Usar mi ubicación
-        </button>
-
-        <div class="text-sm text-slate-600">
-          <p><span class="font-semibold">Latitud:</span> <span id="latitud">-</span></p>
-          <p><span class="font-semibold">Longitud:</span> <span id="longitud">-</span></p>
-          <p><span class="font-semibold">Horas pico estimadas:</span> <span id="horasPico">-</span> h/día</p>
+      <!-- Mapa + datos de ubicación -->
+      <div class="grid md:grid-cols-3 gap-6 mb-8">
+        <!-- Mapa -->
+        <div class="md:col-span-2 bg-white rounded-xl shadow p-4">
+          <h3 class="font-semibold mb-3 text-left">Selecciona tu ubicación</h3>
+          <div id="map" class="w-full h-72 rounded-lg"></div>
+          <p class="text-xs text-slate-400 mt-2 text-left">
+            Haz clic en el mapa para elegir tu ubicación. También puedes usar el botón “Usar mi ubicación”.
+          </p>
         </div>
 
-        <p class="text-xs text-slate-400">
-          Las horas pico de sol se estiman según la latitud. Para un diseño definitivo, usa datos de recurso solar específicos de tu zona.
-        </p>
-      </div>
-    </div>
+        <!-- Datos de ubicación -->
+        <div class="bg-white rounded-xl shadow p-4 flex flex-col gap-3 text-left">
+          <h3 class="font-semibold mb-2">Datos de ubicación</h3>
 
-    <!-- Parámetros de cálculo -->
-    <div class="bg-white rounded-xl shadow p-6">
-      <h3 class="text-xl font-bold mb-4 text-left">Parámetros de cálculo</h3>
+          <button
+            id="btnUbicacion"
+            class="bg-sky-500 hover:bg-sky-600 text-white font-semibold px-4 py-2 rounded-lg text-sm transition"
+          >
+            Usar mi ubicación
+          </button>
 
-      <div class="grid md:grid-cols-3 gap-6 mb-6">
-        <!-- Consumo -->
-        <div>
-          <label class="block text-sm font-semibold mb-2" for="consumo">
-            Consumo mensual (kWh)
-          </label>
-          <input
-            id="consumo"
-            type="number"
-            min="0"
-            placeholder="Ej: 300"
-            class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-400"
-          />
-        </div>
+          <div class="text-sm text-slate-600">
+            <p><span class="font-semibold">Latitud:</span> <span id="latitud">-</span></p>
+            <p><span class="font-semibold">Longitud:</span> <span id="longitud">-</span></p>
+            <p><span class="font-semibold">Horas pico estimadas:</span> <span id="horasPico">-</span> h/día</p>
+          </div>
 
-        <!-- Potencia del panel -->
-        <div>
-          <label class="block text-sm font-semibold mb-2" for="potenciaPanel">
-            Potencia de cada panel (W)
-          </label>
-          <input
-            id="potenciaPanel"
-            type="number"
-            min="50"
-            value="400"
-            class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-400"
-          />
-        </div>
-
-        <!-- Pérdidas -->
-        <div>
-          <label class="block text-sm font-semibold mb-2" for="factorPerdidas">
-            Factor de pérdidas (%)
-          </label>
-          <input
-            id="factorPerdidas"
-            type="number"
-            min="0"
-            max="50"
-            value="25"
-            class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-400"
-          />
-          <p class="text-xs text-slate-400 mt-1">
-            25% ≈ eficiencia global del 75% (pérdidas por temperatura, inversor, suciedad, etc.).
+          <p class="text-xs text-slate-400">
+            Las horas pico de sol se estiman según la latitud. Para un diseño definitivo, usa datos de recurso solar
+            específicos de tu zona.
           </p>
         </div>
       </div>
 
-      <div class="text-center">
-        <button
-          id="btnCalcular"
-          class="bg-sky-500 hover:bg-sky-600 text-white font-semibold px-6 py-3 rounded-lg transition duration-300 transform hover:-translate-y-0.5"
-        >
-          Calcular sistema solar
-        </button>
-      </div>
+      <!-- Parámetros de cálculo -->
+      <div class="bg-white rounded-xl shadow p-6">
+        <h3 class="text-xl font-bold mb-4 text-left">Parámetros de cálculo</h3>
 
-      <!-- Resultados -->
-      <div id="resultados" class="hidden mt-8 grid md:grid-cols-3 gap-6">
-        <div class="p-4 bg-slate-50 rounded-lg border border-slate-200 text-center">
-          <p class="text-sm text-slate-500 mb-1">Potencia del sistema</p>
-          <p id="potenciaSistema" class="text-2xl font-bold text-sky-500">0 kW</p>
-        </div>
-        <div class="p-4 bg-slate-50 rounded-lg border border-slate-200 text-center">
-          <p class="text-sm text-slate-500 mb-1">Paneles necesarios</p>
-          <p id="cantidadPaneles" class="text-2xl font-bold text-sky-500">0</p>
-        </div>
-        <div class="p-4 bg-slate-50 rounded-lg border border-slate-200 text-center">
-          <p class="text-sm text-slate-500 mb-1">Área estimada</p>
-          <p id="areaRequerida" class="text-2xl font-bold text-sky-500">0 m²</p>
-        </div>
-      </div>
+        <div class="grid md:grid-cols-3 gap-6 mb-6">
+          <!-- Consumo -->
+          <div>
+            <label class="block text-sm font-semibold mb-2" for="consumo">
+              Consumo mensual (kWh)
+            </label>
+            <input
+              id="consumo"
+              type="number"
+              min="0"
+              placeholder="Ej: 300"
+              class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-400"
+            />
+          </div>
 
-      <p class="text-xs text-slate-400 mt-4">
-        * Cálculo orientativo. Se asume un área promedio de 2 m² por panel y un mes de 30 días.
-        Para proyectos reales se recomienda usar datos de recurso solar y normativas locales.
+          <!-- Potencia del panel -->
+          <div>
+            <label class="block text-sm font-semibold mb-2" for="potenciaPanel">
+              Potencia de cada panel (W)
+            </label>
+            <input
+              id="potenciaPanel"
+              type="number"
+              min="50"
+              value="400"
+              class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-400"
+            />
+          </div>
+
+          <!-- Pérdidas -->
+          <div>
+            <label class="block text-sm font-semibold mb-2" for="factorPerdidas">
+              Factor de pérdidas (%)
+            </label>
+            <input
+              id="factorPerdidas"
+              type="number"
+              min="0"
+              max="50"
+              value="25"
+              class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-400"
+            />
+            <p class="text-xs text-slate-400 mt-1">
+              25% ≈ eficiencia global del 75% (pérdidas por temperatura, inversor, suciedad, etc.).
+            </p>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <button
+            id="btnCalcular"
+            class="bg-sky-500 hover:bg-sky-600 text-white font-semibold px-6 py-3 rounded-lg transition duration-300 transform hover:-translate-y-0.5"
+          >
+            Calcular sistema solar
+          </button>
+        </div>
+
+        <!-- Resultados -->
+        <div id="resultados" class="hidden mt-8 grid md:grid-cols-3 gap-6">
+          <div class="p-4 bg-slate-50 rounded-lg border border-slate-200 text-center">
+            <p class="text-sm text-slate-500 mb-1">Potencia del sistema</p>
+            <p id="potenciaSistema" class="text-2xl font-bold text-sky-500">0 kW</p>
+          </div>
+          <div class="p-4 bg-slate-50 rounded-lg border border-slate-200 text-center">
+            <p class="text-sm text-slate-500 mb-1">Paneles necesarios</p>
+            <p id="cantidadPaneles" class="text-2xl font-bold text-sky-500">0</p>
+          </div>
+          <div class="p-4 bg-slate-50 rounded-lg border border-slate-200 text-center">
+            <p class="text-sm text-slate-500 mb-1">Área estimada</p>
+            <p id="areaRequerida" class="text-2xl font-bold text-sky-500">0 m²</p>
+          </div>
+        </div>
+
+        <p class="text-xs text-slate-400 mt-4">
+          * Cálculo orientativo. Se asume un área promedio de 2 m² por panel y un mes de 30 días.
+          Para proyectos reales se recomienda usar datos de recurso solar y normativas locales.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section id="blog" class="py-16 px-4">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-4">Últimas Publicaciones</h2>
+      <p class="text-slate-500 mb-10">
+        Explorando el futuro de la energía solar y las tecnologías limpias
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <!-- 14 Sep 2025 -->
+        <article class="card">
+          <div class="relative">
+            <img
+              src="https://solardesigndotblog.wordpress.com/wp-content/uploads/2025/09/diapositiva1-1.jpg"
+              alt="¿Qué es un sistema de energía solar off-grid?"
+              class="w-full h-48 object-cover"
+            >
+            <span class="date">14 Sep 2025</span>
+          </div>
+          <div class="p-5 text-left">
+            <h3 class="font-semibold mb-2">
+              ¿Qué es un sistema de energía solar off-grid?
+            </h3>
+            <p class="text-slate-500 text-sm mb-3">
+              Un sistema solar off-grid (o aislado) es una solución energética que no depende de una red eléctrica tradicional…
+            </p>
+            <a
+              href="https://solardesign.blog/2025/09/14/que-es-un-sistema-de-energia-solar-off-grid/"
+              class="text-sky-500 font-semibold hover:underline"
+              target="_blank"
+              rel="noopener"
+            >
+              Leer más →
+            </a>
+          </div>
+        </article>
+
+        <!-- 15 Mar 2024 -->
+        <article class="card">
+          <div class="relative">
+            <img
+              src="https://images.unsplash.com/photo-1509391366360-2e959784a276"
+              alt="Paneles solares"
+              class="w-full h-48 object-cover"
+            >
+            <span class="date">15 Mar 2024</span>
+          </div>
+          <div class="p-5 text-left">
+            <h3 class="font-semibold mb-2">
+              El Futuro de la Energía Solar en Argentina
+            </h3>
+            <p class="text-slate-500 text-sm mb-3">
+              La energía solar está revolucionando el panorama energético argentino.
+            </p>
+            <a href="#" class="text-sky-500 font-semibold hover:underline">
+              Leer más →
+            </a>
+          </div>
+        </article>
+
+        <!-- 10 Mar 2024 -->
+        <article class="card">
+          <div class="relative">
+            <img
+              src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9"
+              alt="Instalación solar"
+              class="w-full h-48 object-cover"
+            >
+            <span class="date">10 Mar 2024</span>
+          </div>
+          <div class="p-5 text-left">
+            <h3 class="font-semibold mb-2">
+              Guía Completa para Instalar Paneles Solares
+            </h3>
+            <p class="text-slate-500 text-sm mb-3">
+              Todo lo que necesitas saber antes de instalar un sistema.
+            </p>
+            <a href="#" class="text-sky-500 font-semibold hover:underline">
+              Leer más →
+            </a>
+          </div>
+        </article>
+
+        <!-- 5 Mar 2024 -->
+        <article class="card">
+          <div class="relative">
+            <img
+              src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e"
+              alt="Energía limpia"
+              class="w-full h-48 object-cover"
+            >
+            <span class="date">5 Mar 2024</span>
+          </div>
+          <div class="p-5 text-left">
+            <h3 class="font-semibold mb-2">
+              Beneficios Económicos de la Energía Solar
+            </h3>
+            <p class="text-slate-500 text-sm mb-3">
+              Análisis de ahorros y retorno de la inversión.
+            </p>
+            <a href="#" class="text-sky-500 font-semibold hover:underline">
+              Leer más →
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE NOSOTROS -->
+  <section id="sobre" class="py-16 px-4">
+    <div class="max-w-5xl mx-auto bg-slate-50 rounded-2xl shadow-md px-6 py-10 md:px-10 md:py-12 text-center">
+      <h2 class="text-3xl font-bold mb-4 text-slate-900">
+        Sobre Nosotros
+      </h2>
+      <p class="text-slate-600 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
+        Solar Design Argentina nace para difundir soluciones de energía limpia y acercar herramientas simples
+        para dimensionar instalaciones residenciales y comerciales.
       </p>
     </div>
-  </div>
-</section>
+  </section>
 
-
-
- <!-- BLOG -->
-<section id="blog" class="py-16 px-4 text-center">
-  <h2 class="text-3xl font-bold mb-4">Últimas Publicaciones</h2>
-  <p class="text-slate-500 mb-10">
-    Explorando el futuro de la energía solar y las tecnologías limpias
-  </p>
-
-  <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-
-    <!-- 14 Sep 2025 -->
-    <article class="card">
-      <div class="relative">
-        <img
-          src="https://solardesigndotblog.wordpress.com/wp-content/uploads/2025/09/diapositiva1-1.jpg"
-          alt="¿Qué es un sistema de energía solar off-grid?"
-          class="w-full h-48 object-cover"
-        >
-        <span class="date">14 Sep 2025</span>
-      </div>
-      <div class="p-5 text-left">
-        <h3 class="font-semibold mb-2">
-          ¿Qué es un sistema de energía solar off-grid?
-        </h3>
-        <p class="text-slate-500 text-sm mb-3">
-          Un sistema solar off-grid (o aislado) es una solución energética que no depende de una red eléctrica tradicional…
+  <!-- CONTACTO -->
+  <section id="contacto" class="py-16 px-4">
+    <div class="max-w-5xl mx-auto rounded-2xl shadow-md px-6 py-10 md:px-10 md:py-12 bg-slate-50">
+      <!-- Título y texto -->
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-4">
+          Contáctanos
+        </h2>
+        <p class="text-slate-500 text-base md:text-lg">
+          Cuéntanos sobre tu proyecto solar, tu ubicación y tu consumo estimado.
+          Te responderemos con una propuesta orientativa y los próximos pasos para avanzar.
         </p>
+      </div>
+
+      <!-- FORMULARIO -->
+      <form
+        action="mailto:solardesign.arg@gmail.com"
+        method="POST"
+        enctype="text/plain"
+        class="max-w-3xl mx-auto mt-10 space-y-6"
+      >
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <label for="nombre" class="block text-sm font-semibold mb-2">
+              Nombre
+            </label>
+            <input
+              id="nombre"
+              name="Nombre"
+              type="text"
+              required
+              placeholder="Tu nombre"
+              class="w-full border border-slate-300 rounded-lg px-3 py-2
+                     focus:outline-none focus:ring-2 focus:ring-sky-400"
+            />
+          </div>
+
+          <div>
+            <label for="email" class="block text-sm font-semibold mb-2">
+              Correo electrónico
+            </label>
+            <input
+              id="email"
+              name="Correo"
+              type="email"
+              required
+              placeholder="tucorreo@ejemplo.com"
+              class="w-full border border-slate-300 rounded-lg px-3 py-2
+                     focus:outline-none focus:ring-2 focus:ring-sky-400"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label for="mensaje" class="block text-sm font-semibold mb-2">
+            Mensaje
+          </label>
+          <textarea
+            id="mensaje"
+            name="Mensaje"
+            rows="5"
+            required
+            placeholder="Cuéntanos sobre tu proyecto solar..."
+            class="w-full border border-slate-300 rounded-lg px-3 py-2
+                   focus:outline-none focus:ring-2 focus:ring-sky-400"
+          ></textarea>
+        </div>
+
+        <!-- BOTÓN igual al de la calculadora -->
+        <div class="text-center pt-2">
+          <button
+            type="submit"
+            class="bg-sky-500 hover:bg-sky-600 text-white font-semibold
+                   px-6 py-3 rounded-lg transition duration-300
+                   transform hover:-translate-y-0.5"
+          >
+            Enviar mensaje
+          </button>
+        </div>
+
+        <p class="text-xs text-slate-400 text-center mt-3">
+          Al hacer clic en “Enviar mensaje” se abrirá tu aplicación de correo
+          con estos datos ya completados.
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <!-- RRSS -->
+  <section id="rrss" class="py-16 px-4 bg-slate-50">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-2xl font-bold mb-6 text-slate-800">Síguenos</h2>
+
+      <div class="flex justify-center gap-8 flex-wrap">
+        <!-- Facebook -->
         <a
-          href="https://solardesign.blog/2025/09/14/que-es-un-sistema-de-energia-solar-off-grid/"
-          class="text-sky-500 font-semibold hover:underline"
+          href="https://www.facebook.com/profile.php?id=61579307902828"
           target="_blank"
           rel="noopener"
+          class="inline-flex items-center justify-center"
         >
-          Leer más →
+          <img src="assets/facebook.png" alt="Facebook" class="w-8 h-8">
+        </a>
+
+        <!-- Instagram -->
+        <a
+          href="https://www.instagram.com/solardesign.arg/?hl=en"
+          target="_blank"
+          rel="noopener"
+          class="inline-flex items-center justify-center"
+        >
+          <img src="assets/instagram.png" alt="Instagram" class="w-8 h-8">
         </a>
       </div>
-    </article>
-
-    <!-- 15 Mar 2024 -->
-    <article class="card">
-      <div class="relative">
-        <img
-          src="https://images.unsplash.com/photo-1509391366360-2e959784a276"
-          alt="Paneles solares"
-          class="w-full h-48 object-cover"
-        >
-        <span class="date">15 Mar 2024</span>
-      </div>
-      <div class="p-5 text-left">
-        <h3 class="font-semibold mb-2">
-          El Futuro de la Energía Solar en Argentina
-        </h3>
-        <p class="text-slate-500 text-sm mb-3">
-          La energía solar está revolucionando el panorama energético argentino.
-        </p>
-        <a href="#" class="text-sky-500 font-semibold hover:underline">
-          Leer más →
-        </a>
-      </div>
-    </article>
-
-    <!-- 10 Mar 2024 -->
-    <article class="card">
-      <div class="relative">
-        <img
-          src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9"
-          alt="Instalación solar"
-          class="w-full h-48 object-cover"
-        >
-        <span class="date">10 Mar 2024</span>
-      </div>
-      <div class="p-5 text-left">
-        <h3 class="font-semibold mb-2">
-          Guía Completa para Instalar Paneles Solares
-        </h3>
-        <p class="text-slate-500 text-sm mb-3">
-          Todo lo que necesitas saber antes de instalar un sistema.
-        </p>
-        <a href="#" class="text-sky-500 font-semibold hover:underline">
-          Leer más →
-        </a>
-      </div>
-    </article>
-
-    <!-- 5 Mar 2024 -->
-    <article class="card">
-      <div class="relative">
-        <img
-          src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e"
-          alt="Energía limpia"
-          class="w-full h-48 object-cover"
-        >
-        <span class="date">5 Mar 2024</span>
-      </div>
-      <div class="p-5 text-left">
-        <h3 class="font-semibold mb-2">
-          Beneficios Económicos de la Energía Solar
-        </h3>
-        <p class="text-slate-500 text-sm mb-3">
-          Análisis de ahorros y retorno de la inversión.
-        </p>
-        <a href="#" class="text-sky-500 font-semibold hover:underline">
-          Leer más →
-        </a>
-      </div>
-    </article>
-
-  </div>
-</section>
-
-<!-- SOBRE -->
-<section id="sobre" style="
-  margin-bottom:40px;
-  padding:40px 16px 60px;
-">
-  <div style="
-    max-width:1100px;
-    margin:0 auto;
-    background:linear-gradient(135deg,#f8fafc,#f1f5f9);
-    border-radius:16px;
-    padding:32px 24px 40px;
-    box-shadow:0 8px 24px rgba(15,23,42,0.06);
-    text-align:center;
-  ">
-    <h2 style="margin:0 0 10px 0;font-size:1.6rem;font-weight:700;color:#0f172a;">
-      Sobre Nosotros
-    </h2>
-    <p style="color:#475569;max-width:680px;margin:0 auto;font-size:0.95rem;line-height:1.6;">
-      Solar Design Argentina nace para difundir soluciones de energía limpia y acercar herramientas
-      simples para dimensionar instalaciones residenciales y comerciales.
-    </p>
-  </div>
-</section>
-
-
-<!-- CONTACTO -->
-<section id="contacto" class="py-10 px-4" >
-  <!-- Contenedor con el mismo ancho que "Sobre Nosotros" -->
-  <div class="max-w-5xl mx-auto rounded-xl shadow-md px-6 py-10 md:px-10 md:py-12 bg-slate-50">
-
-    <!-- Título y texto -->
-    <div class="max-w-3xl mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-4">
-        Contáctanos
-      </h2>
-
-      <p class="text-slate-500 text-base md:text-lg">
-        Cuéntanos sobre tu proyecto solar, tu ubicación y tu consumo estimado.
-        Te responderemos con una propuesta orientativa y los próximos pasos para avanzar.
-      </p>
     </div>
-
-    <!-- FORMULARIO -->
-    <form
-      action="mailto:solardesign.arg@gmail.com"
-      method="POST"
-      enctype="text/plain"
-      class="max-w-3xl mx-auto mt-10 space-y-6"
-    >
-      <div class="grid md:grid-cols-2 gap-6">
-        <div>
-          <label for="nombre" class="block text-sm font-semibold mb-2">
-            Nombre
-          </label>
-          <input
-            id="nombre"
-            name="Nombre"
-            type="text"
-            required
-            placeholder="Tu nombre"
-            class="w-full border border-slate-300 rounded-lg px-3 py-2
-                   focus:outline-none focus:ring-2 focus:ring-sky-400"
-          />
-        </div>
-
-        <div>
-          <label for="email" class="block text-sm font-semibold mb-2">
-            Correo electrónico
-          </label>
-          <input
-            id="email"
-            name="Correo"
-            type="email"
-            required
-            placeholder="tucorreo@ejemplo.com"
-            class="w-full border border-slate-300 rounded-lg px-3 py-2
-                   focus:outline-none focus:ring-2 focus:ring-sky-400"
-          />
-        </div>
-      </div>
-
-      <div>
-        <label for="mensaje" class="block text-sm font-semibold mb-2">
-          Mensaje
-        </label>
-        <textarea
-          id="mensaje"
-          name="Mensaje"
-          rows="5"
-          required
-          placeholder="Cuéntanos sobre tu proyecto solar..."
-          class="w-full border border-slate-300 rounded-lg px-3 py-2
-                 focus:outline-none focus:ring-2 focus:ring-sky-400"
-        ></textarea>
-      </div>
-
-      <!-- BOTÓN igual al de la calculadora -->
-      <div class="text-center pt-2">
-        <button
-          type="submit"
-          class="bg-sky-500 hover:bg-sky-600 text-white font-semibold
-                 px-6 py-3 rounded-lg transition duration-300
-                 transform hover:-translate-y-0.5"
-        >
-          Enviar mensaje
-        </button>
-      </div>
-
-      <p class="text-xs text-slate-400 text-center mt-3">
-        Al hacer clic en “Enviar mensaje” se abrirá tu aplicación de correo
-        con estos datos ya completados.
-      </p>
-    </form>
-  </div>
-</section>
-
-<!-- RRSS -->
-<section id="rrss" class="py-12 px-6 text-center bg-slate-50">
-  <h2 class="text-2xl font-bold mb-6 text-slate-800">Síguenos</h2>
-
-  <div class="flex justify-center gap-8 flex-wrap">
-
-    <!-- Facebook -->
-    <div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;">
-    <a href="https://www.facebook.com/profile.php?id=61579307902828" target="_blank" rel="noopener"
-       >
-      <img src="assets/facebook.png" alt="Facebook" style="width:32px;height:32px;vertical-align:middle;">
-       <span style="margin-left:8px;vertical-align:middle;color:#0f172a;"></span>
-    </div>
-    </a>
-
-    <!-- Instagram -->
-    <div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;">
-      <a href="https://www.instagram.com/solardesign.arg/?hl=en" target="_blank" rel="noopener"
-       >
-      <img src="assets/instagram.png" alt="Instagram" style="width:32px;height:32px;vertical-align:middle;">
-        <span style="margin-left:8px;vertical-align:middle;color:#0f172a;"></span>
-    </div>
-    </a>
-
-  </div>
-</section>
-
-
-
+  </section>
 
   <!-- FOOTER -->
   <footer class="bg-slate-900 text-slate-300 text-center py-6 mt-10">
     © 2025 Solar Design Argentina — Energía solar para un futuro sostenible.
   </footer>
 
-  <!-- Scripts -->
+  <!-- Script propio -->
   <script src="assets/app.js"></script>
-</body>
-</html>
 
-  <!-- Google Maps JS: reemplaza TU_API_KEY_AQUI por tu API key real -->
+  <!-- Google Maps JS (usa aquí tu API Key) -->
   <script
     async
     defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-hn3Co-MdZ0RoFA4T3u-pGHE7w8uhE3s&callback=initMap">
   </script>
-
-  <!-- Scripts propios -->
-  <script src="assets/app.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
